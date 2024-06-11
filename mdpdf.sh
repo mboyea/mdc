@@ -16,5 +16,5 @@ print_help() {
 
 # bash --init-file <(cd $script_dir && make -C $target_dir)
 
-# if not matched with any action option, print help
+# if not matched with any option, print help
 print_help
