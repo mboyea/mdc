@@ -63,7 +63,9 @@ compile_pdf() {
   else
     make -C "$target_dir" ${make_args[@]}
   fi
-  rm "$target_dir/Makefile"
+  if ! [[ $target_dir -eq $script_dir ]]; then
+    rm "$target_dir/Makefile"
+  fi
 }
 
 main() {
