@@ -22,7 +22,6 @@ print_help() {
   echo "OPTIONS:"
   echo "  -h        --help"
   echo "  -w        --watch"
-  echo "  -t FILE   --template FILE"
 }
 
 interpret_args() {
@@ -37,16 +36,6 @@ interpret_args() {
         shift
         echoerror "The option "--watch" is not yet supported"
       ;;
-      -t|--template)
-        is_template_arg=1
-        template_file="$(template_dir)/$2"
-        shift
-        shift
-      ;;
-      -*|--*)
-        echoerror "The option "$1" is not recognized"
-        exit 1
-      ;;
       *)
         make_args+=("$1")
         shift
@@ -57,13 +46,13 @@ interpret_args() {
 }
 
 compile_pdf() {
-  cp "$make_file" "$target_dir/Makefile"
-  if [[ $is_template_arg -eq 1 ]]; then
-    make -C "$target_dir" TEMPLATE_FILE="$template_file" ${make_args[@]}
-  else
-    make -C "$target_dir" ${make_args[@]}
+  if ! [[ "$target_dir" == "$script_dir" ]]; then
+    cp "$make_file" "$target_dir/Makefile"
   fi
-  if ! [[ $target_dir -eq $script_dir ]]; then
+
+  make -C "$target_dir" ${make_args[@]}
+
+  if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm "$target_dir/Makefile"
   fi
 }
