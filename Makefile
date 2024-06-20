@@ -9,6 +9,7 @@ SRC_DIR := .
 BUILD_DIR := build
 OUT_DIR := .
 PANDOC_ARGS ?=
+LATEX_ARGS ?=
 
 # file lists
 MDS := $(wildcard $(SRC_DIR)/*.md)
@@ -20,7 +21,7 @@ all : $(BUILDS) $(OUTS)
 $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 	@mkdir -p "$(OUT_DIR)"
 	@echo "Compiling $@...";
-	@-pdflatex -interaction=batchmode -halt-on-error -file-line-error -shell-escape -output-directory="$(OUT_DIR)" -aux-directory="$(BUILD_DIR)" "$<"
+	@-pdflatex -interaction=batchmode -halt-on-error -file-line-error -shell-escape -output-directory="$(OUT_DIR)" -aux-directory="$(BUILD_DIR)" "$<" $(LATEX_ARGS)
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 	@mkdir -p "$(BUILD_DIR)"

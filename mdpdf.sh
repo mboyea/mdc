@@ -5,6 +5,8 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 template_dir="$script_dir/templates"
 make_file="$script_dir/Makefile"
 make_args=()
+pandoc_args=()
+latex_args=()
 
 echoerror() { echo "Error: $@" 1>&2; }
 
@@ -20,8 +22,11 @@ print_help() {
   echo "mdpdf [OPTIONS]... [MAKE ARGUMENTS]..."
   echo "___________________________________________"
   echo "OPTIONS:"
-  echo "  -h        --help"
-  echo "  -w        --watch"
+  echo "  -h            --help"
+  echo "  -w            --watch"
+  echo "  -p STRING     --pandoc-args STRING"
+  echo "  -l STRING     --latex-args STRING"
+  echo "  -t FILE       --template FILE"
 }
 
 interpret_args() {
@@ -35,6 +40,25 @@ interpret_args() {
         is_watch_arg=1
         shift
         echoerror "The option "--watch" is not yet supported"
+      ;;
+      -p|--pandoc-args)
+        is_pandoc_args=1
+        pandoc_args+=("$2")
+        shift
+        shift
+      ;;
+      -l|--latex-args)
+        is_latex_args=1
+        latex_args+=("$2")
+        shift
+        shift
+      ;;
+      -t|--template)
+        is_template_arg=1
+        template_file="$template_dir/$2"
+        pandoc_args+=("--template='$template_file'")
+        shift
+        shift
       ;;
       *)
         make_args+=("$1")
@@ -50,7 +74,7 @@ compile_pdf() {
     cp "$make_file" "$target_dir/Makefile"
   fi
 
-  make -C "$target_dir" ${make_args[@]}
+  make -C "$target_dir" ${make_args[@]} PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
 
   if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm "$target_dir/Makefile"
