@@ -45,7 +45,10 @@ gnumake
 - In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
-### Compile PDFs
+### Run Scripts
 
-- `pandoc --from=markdown --to=pdf --standalone --output="ErrorMemo.pdf" "ErrorMemo.md"`
-- `bash --init-file <(cd path/to/directory/with/makefile && make -C path/to/directory/with/target/files)`
+Type `<script-name> -h` into the terminal to view the supported usage of that script.
+
+| script-name | description |
+|:----------- |:----------- |
+| `mdpdf` | compile .md files (Markdown) int .pdf files (Portable Display Format) |
