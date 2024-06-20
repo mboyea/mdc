@@ -1,0 +1,339 @@
+
+%%% CUSTOM COMMANDS %%%
+
+% center the contents inline - intended to center images
+\newcommand{\inlineicon}[1]{$$\vcenter{\hbox{#1}}\;$$}
+
+%%% END CUSTOM COMMANDS %%%
+
+%%% CUSTOM DOCUMENT STYLES %%%
+
+% set paper type, size, & font size
+\documentclass[11pt,letterpaper]{report}
+% set margins
+\usepackage[margin=0.5in]{geometry}
+% set line spacing
+\usepackage{setspace}
+\setstretch{1.15}
+% load fonts
+% defaults: cmr cmss cmtt
+\usepackage{mathptmx} % ptm
+\usepackage{courier} % pcr
+\usepackage{tgadventor} % qag
+\usepackage{tgbonum} % qbk
+% set default fonts
+\renewcommand{\rmdefault}{qbk}
+% \renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{qag}
+\renewcommand{\ttdefault}{pcr}
+% \newcommand{\altrmdefault}{qbk}
+% \newcommand{\altrmfamily}{\fontfamily{\altrmdefault}\selectfont}
+\renewcommand\familydefault{\sfdefault}
+% set character spacing
+\usepackage[tracking = true, letterspace = 500]{microtype}
+% set word spacing
+%%%microtype interword spacing
+% disable protrusion for ttfonts
+\UseMicrotypeSet[protrusion]{basicmath}
+% set list styles
+\usepackage{enumitem}
+\setlist{leftmargin=2em,labelsep=0.5em,labelwidth=0.5em,rightmargin=0.5em}
+% set header/footer styles
+\usepackage[compact, pagestyles]{titlesec}
+\newpagestyle{main}[]{
+  \sethead[][][]{}{}{}
+  \setfoot[][][]{}{}{}
+}
+\pagestyle{main}
+% set header/footer styles for pages with \chapter heading
+\makeatletter
+\renewcommand\chapter{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{main}% original style: plain
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter
+}
+\makeatother
+% set chapter heading styles
+\titleformat{\chapter}[hang]
+{\centering\rmfamily\huge\uppercase}
+{}
+{0pt}
+{\titlerule[0.6pt]\vspace{-0.3em}}[]
+\titlespacing{\chapter}
+{0pt}
+{-0.4em}
+{-1.0em}[0pt]
+% set section heading styles
+\titleformat{\section}[hang]
+{\centering\rmfamily\LARGE\uppercase}
+{}
+{0pt}
+{\titlerule[1.6pt]\vspace{-0.2em}}[]
+\titlespacing{\section}
+{0pt}
+{1.2em}
+{-0.1em}[0pt]
+% set subsection heading styles
+\titleformat{\subsection}[hang]
+{\centering\rmfamily\Large\uppercase}
+{}
+{0pt}
+{\titlerule[0.6pt]\vspace{-0.4em}}[{\vspace{0.1em}\titlerule[1.6pt]}]
+\titlespacing{\subsection}
+{0pt}
+{1.5em}
+{0.5em}[0pt]
+% set subsubsection heading styles
+\titleformat{\subsubsection}[hang]
+{\sffamily\normalsize}
+{}
+{0pt}
+{}[]
+\titlespacing{\subsubsection}
+{0pt}
+{0.2em}
+{-0.1em}[0pt]
+
+%%% END CUSTOM DOCUMENT STYLES
+
+%%% CUSTOM ENVIRONMENTS %%%
+
+\usepackage{environ}
+\NewEnviron{tricolumn}{%
+  \begin{minipage}[t]{0.33\textwidth}
+  \BODY
+  \end{minipage}
+}
+\NewEnviron{bicolumn}{%
+  \begin{minipage}[t]{0.499\textwidth}
+  \BODY
+  \end{minipage}
+}
+
+\usepackage{transparent}
+\NewEnviron{hide}{
+%  \renewcommand\subsection[1]{%
+%    \refstepcounter{subsection}%
+%    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}##1}%
+%    \subsectionmark{##1}%
+%  }%
+  \transparent{0}
+  \setstretch{0}
+  % remove subsection heading spacing
+  \titlespacing{\subsection}
+  {0pt}
+  {0em}
+  {0em}[0pt]
+  \BODY
+}
+
+%%% END CUSTOM ENVIRONMENTS %%%
+
+%%% PANDOC MARKDOWN OUTPUT SUPPORT %%%
+
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp} % provide euro and other symbols
+$if(zero-width-non-joiner)$
+%% Support for zero-width non-joiner characters.
+\makeatletter
+\def\zerowidthnonjoiner{%
+  % Prevent ligatures and adjust kerning, but still support hyphenating.
+  \texorpdfstring{%
+    \TextOrMath{\nobreak\discretionary{-}{}{\kern.03em}%
+      \ifvmode\else\nobreak\hskip\z@skip\fi}{}%
+  }{}%
+}
+\makeatother
+\DeclareUnicodeCharacter{200C}{\zerowidthnonjoiner}
+$endif$
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\makeatletter
+\IfFileExists{parskip.sty}{%
+  \usepackage{parskip}
+}{% else
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+\makeatother
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+\usepackage{xcolor}
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs,array}
+$if(multirow)$
+\usepackage{multirow}
+$endif$
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+$endif$
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+$endif$
+$if(svg)$
+\usepackage{svg}
+$endif$
+$if(strikeout)$
+% strikeout + underline support
+\usepackage{soul}
+$endif$
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+$if(subfigure)$
+\usepackage{subcaption}
+$endif$
+$if(csl-refs)$
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup%
+}
+\makeatletter
+  % allow citations to break across lines
+  \let\@cite@ofmt\@firstofone
+  % avoid brackets around text for \cite:
+  \def\@biblabel#1{}
+  \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+{\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+    \setlength{\leftmargin}{\cslhangindent}
+    \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+{\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(csquotes)$
+\usepackage{csquotes}
+$endif$
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+
+%%% END PANDOC MARKDOWN OUTPUT SUPPORT %%%
+
+%%% YAML METADATA SUPPORT %%%
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+$if(lang)$
+\usepackage[bidi=default]{babel}
+$if(babel-lang)$
+\babelprovide[main,import]{$babel-lang$}
+$endif$
+$for(babel-otherlangs)$
+\babelprovide[import]{$babel-otherlangs$}
+$endfor$
+$for(babelfonts/pairs)$
+\babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
+$endfor$
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+$endif$
+\hypersetup{
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+$if(lang)$
+  pdflang={$lang$},
+$endif$
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+  pdfcreator={LaTeX via pandoc}}
+
+%%% END YAML METADATA SUPPORT %%%
+
+%%% DOCUMENT %%%
+
+\begin{document}
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\end{document}
+
+%%% END DOCUMENT %%%
