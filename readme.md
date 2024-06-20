@@ -4,9 +4,9 @@ author: [Matthew Terrance Carlos Boyea]
 date: "2024-09-30"
 lang: en
 subject: pandoc
-keywords: [pandoc, windows, linux, scripts]
+keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]
 ---
-## A collection of scripts to compile plaintext Markdown + LaTeX documents to PDF using Pandoc + Makefile
+## A scripts to compile plaintext Markdown + LaTeX documents using Pandoc + Makefile
 
 I use these scripts to process documents at work.
 
