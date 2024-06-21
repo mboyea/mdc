@@ -6,7 +6,7 @@ lang: en
 subject: pandoc
 keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]
 ---
-## A scripts to compile plaintext Markdown + LaTeX documents using Pandoc + Makefile
+## Scripts to compile plaintext Markdown documents into other formats using Pandoc + Makefile
 
 I use these scripts to process documents at work.
 
