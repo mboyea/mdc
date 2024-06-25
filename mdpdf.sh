@@ -2,10 +2,12 @@
 
 target_dir="$(pwd)"
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-template_dir="$script_dir/templates"
+data_dir="$script_dir/data"
+template_dir="$data_dir/templates"
 make_file="$script_dir/Makefile"
 make_args=()
 pandoc_args=()
+pandoc_args+=("--data-dir='$data_dir'")
 latex_args=()
 
 echoerror() { echo "Error: $@" 1>&2; }

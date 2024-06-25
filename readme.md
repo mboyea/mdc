@@ -5,6 +5,7 @@ date: "2024-09-30"
 lang: en
 subject: pandoc
 keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]
+template_: readme
 ---
 ## Scripts to compile plaintext Markdown documents into other formats using Pandoc + Makefile
 
@@ -45,7 +46,7 @@ gnumake
 - In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
-### Run Scripts
+### Script Usage
 
 Type `<script-name> -h` into the terminal to view the supported usage of that script.
 
