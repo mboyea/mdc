@@ -1,11 +1,9 @@
 ---
 title: Pandoc Scripts
 author: [Matthew Terrance Carlos Boyea]
-date: "2024-09-30"
 lang: en
 subject: pandoc
 keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]
-template_: readme
 ---
 ## Scripts to compile plaintext Markdown documents into other formats using Pandoc + Makefile
 
