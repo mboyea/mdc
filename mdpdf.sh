@@ -7,7 +7,6 @@ template_dir="$data_dir/templates"
 make_file="$script_dir/Makefile"
 make_args=()
 pandoc_args=()
-pandoc_args+=("--data-dir='$data_dir'")
 latex_args=()
 
 echoerror() { echo "Error: $@" 1>&2; }
@@ -76,7 +75,7 @@ compile_pdf() {
     cp "$make_file" "$target_dir/Makefile"
   fi
 
-  make -C "$target_dir" ${make_args[@]} PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
+  make -C "$target_dir" ${make_args[@]} PANDOC_BEFORE_ARGS="--data-dir='$data_dir'" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
 
   if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm "$target_dir/Makefile"
