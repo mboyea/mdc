@@ -1,1 +1,3 @@
 metadata-file: letterpaper.yaml
+include-in-header:
+  - test.tex

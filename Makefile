@@ -12,6 +12,10 @@ PANDOC_BEFORE_ARGS ?=
 PANDOC_ARGS ?=
 LATEX_ARGS ?=
 
+# ifndef TEXINPUTS
+# export TEXINPUTS = .:/path/to/the/img/folder//:
+# endif
+
 # file lists
 MDS := $(wildcard $(SRC_DIR)/*.md)
 BUILDS := $(patsubst $(SRC_DIR)/%,$(BUILD_DIR)/%,$(MDS:.md=.tex))
@@ -38,6 +42,7 @@ $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 		&& METADATA_DATE_ARG="--metadata='date: $(CURRENT_DATE)'" \
 		&& pandoc --from=markdown --to=latex --standalone "$<" --output="$@" $(PANDOC_BEFORE_ARGS) $$TEMPLATE_FILE_ARG $$DEFAULTS_FILES_ARG $(PANDOC_ARGS)
 # TODO: use $(METADATA_DATE_ARG) if "date:" cannot be found in YAML
+# TODO: find a better way to do "argument logic" inside Makefile
 
 clean :
 	@echo "Cleaning..."; $(RM) -r $(BUILD_DIR) $(OUTS)
