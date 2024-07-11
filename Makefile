@@ -42,7 +42,8 @@ $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 		&& METADATA_DATE_ARG="--metadata='date: $(CURRENT_DATE)'" \
 		&& pandoc --from=markdown --to=latex --standalone "$<" --output="$@" $(PANDOC_BEFORE_ARGS) $$TEMPLATE_FILE_ARG $$DEFAULTS_FILES_ARG $(PANDOC_ARGS)
 # TODO: use $(METADATA_DATE_ARG) if "date:" cannot be found in YAML
-# TODO: find a better way to do "argument logic" inside Makefile
+# TODO: detect for "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right." in .aux and rerun if found
+# TODO: move all this logic outside the Makefile into a bash script
 
 clean :
 	@echo "Cleaning..."; $(RM) -r $(BUILD_DIR) $(OUTS)

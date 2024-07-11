@@ -1,12 +1,6 @@
 metadata-file: letterpaper.yaml
-# header-includes:
-# - |
-#   ```{=latex}
-#   $for(author)$
-#   $if(author.name)$
-#   $author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
-#   $else$
-#   $author$
-#   $endif$
-#   $endfor$
-#   ```
+# include-in-header:
+#   - ${USERDATA}/includes/old-resume-header.latex
+# include-before-body:
+# include-after-body:
+
