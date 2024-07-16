@@ -30,7 +30,7 @@ $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 	@mkdir -p "$(BUILD_DIR)"
-	@echo "Compiling $(BOLD)$@$(SGR0)..."
+	@echo "Building $(BOLD)$@$(SGR0)..."
 	@-./mdpdf-bin/compile-latex.sh "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
 
 clean :

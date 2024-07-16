@@ -23,11 +23,13 @@ main() {
       -interaction=batchmode -halt-on-error -file-line-error -shell-escape "$@" \
       >/dev/null
     compile_count=$(($compile_count + 1))
-    # keep looping unless (allowed to compile again AND need to recompile to update LaTeX labels)
-    if ! (
+    # keep looping unless (allowed to compile again AND need to recompile to resolve LaTeX labels)
+    if (
       [ $compile_count -lt $max_compile_count ] \
       && grep -Fxq "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right." "$output_dir/$input_file_name.log" \
     ) ; then
+      echo "Recompiling to resolve LaTeX labels..."
+    else
       break
     fi
   done
