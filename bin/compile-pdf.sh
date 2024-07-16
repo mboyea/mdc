@@ -1,4 +1,4 @@
-max_recompiles=5
+max_compile_count=5
 
 # ! this is called from the Makefile !
 # ? compile-pdf.sh "file.tex" "output-dir" "build-dir" $(LATEX_ARGS)
@@ -13,18 +13,16 @@ main() {
   shift
   shift
   # compile LaTeX to PDF #
-  i=0
+  compile_count=0
   while [[ true ]] ; do
     pdflatex -output-directory="$output_dir" -aux-directory="$build_dir" "$input_file_path" \
       -interaction=batchmode -halt-on-error -file-line-error -shell-escape "$@" \
       >/dev/null \
     # TODO: remove -aux-directory and instead manually move all build files to the build directory from the output directory
-    i=$(($i + 1))
-    # grep -Fxq "$FILENAME" my_list.txt
-    # [ $i -lt $max_recompiles ] 
-    # if not (can compile again AND should rerun to update labels) break loop
+    compile_count=$(($compile_count + 1))
+    # keep looping unless (allowed to compile again AND need to recompile to update LaTeX labels)
     if ! (
-      [ $i -lt $max_recompiles ] \
+      [ $compile_count -lt $max_compile_count ] \
       && grep -Fxq "LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right." "$build_dir/$input_file_name.log" \
     ) ; then
       break
