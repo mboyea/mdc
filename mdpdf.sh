@@ -1,13 +1,13 @@
 #!/bin/bash
 
 target_dir="$(pwd)"
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+bin_dir="$script_dir/bin"
 data_dir="$script_dir/data"
-template_dir="$data_dir/templates"
-make_file="$script_dir/Makefile"
 make_args=()
 pandoc_args=()
 latex_args=()
+template_dir="$data_dir/templates"
 
 echoerror() { echo "Error: $@" 1>&2; }
 
@@ -70,16 +70,23 @@ interpret_args() {
   set -- "${make_args[@]}"
 }
 
-compile_pdf() {
+compile_each_pdf() {
+  # place dependencies within target folder (due to limitations with GNUMake)
   if ! [[ "$target_dir" == "$script_dir" ]]; then
-    cp "$make_file" "$target_dir/Makefile"
+    rm -f "$target_dir/Makefile"
+    cp "$script_dir/Makefile" "$target_dir/Makefile"
   fi
+  rm -rf "$target_dir/mdpdf-bin"
+  cp -r "$bin_dir" "$target_dir/mdpdf-bin"
 
-  make -C "$target_dir" ${make_args[@]} PANDOC_BEFORE_ARGS="--data-dir='$data_dir'" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
+  # use make to compile each pdf
+  make -C "$target_dir" ${make_args[@]} DATA_DIR="$data_dir" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
 
+  # remove dependencies from target folder
   if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm "$target_dir/Makefile"
   fi
+  rm -r "$target_dir/mdpdf-bin"
 }
 
 main() {
@@ -90,7 +97,7 @@ main() {
   fi
   test_dependency pandoc
   test_dependency pdflatex
-  compile_pdf
+  compile_each_pdf
 }
 
 main "$@"
