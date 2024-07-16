@@ -26,15 +26,12 @@ all : $(BUILDS) $(OUTS)
 $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 	@mkdir -p "$(OUT_DIR)"
 	@echo "Compiling $(BOLD)$@$(SGR0)..."
-	@-pdflatex -interaction=batchmode -halt-on-error -file-line-error -shell-escape -output-directory="$(OUT_DIR)" -aux-directory="$(BUILD_DIR)" "$<" $(LATEX_ARGS) \
-		>/dev/null
-# TODO: detect for "Warning*Rerun" in "./build/$file_name.aux" and if found rerun up to 5 times
-# TODO: make cross-platform by adding logic to replace -aux-directory so MikTex isn't required - do in a bash script
+	@-./mdpdf-bin/compile-pdf.sh "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 	@mkdir -p "$(BUILD_DIR)"
 	@echo "Compiling $(BOLD)$@$(SGR0)..."
-	@-./mdpdf-bin/compile-tex.sh "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
+	@-./mdpdf-bin/compile-latex.sh "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
 
 clean :
 	@echo "Cleaning..."; $(RM) -r $(BUILD_DIR) $(OUTS)
