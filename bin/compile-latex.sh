@@ -1,5 +1,8 @@
 # ! this is called from the Makefile !
 # ? compile-latex.sh "file.md" "file.pdf" "data-dir" $(PANDOC_ARGS)
+# ! dependencies !
+# ? pandoc
+
 main() {
   # interpret arguments #
   input_file="$1"
