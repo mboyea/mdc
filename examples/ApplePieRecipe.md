@@ -2,7 +2,7 @@
 title: Apple Pie Recipe
 author: [Matthew Boyea]
 lang: en
-subject: memo
+subject: recipe
 keywords: [matthew, boyea, apple, pie, recipe, instructions]
 default_: recipe
 ---
@@ -48,8 +48,9 @@ While you wait, it is a good idea to make your pie filling.
 Preheat oven to 375 degrees F.
 Prepare a clean, dry, flat surface.
 Sprinkle flour across the flat surface to prevent pie crust from sticking.
-Roll each dough disk to the diameter of your pie tray using a rolling pin (or cup).
+Roll each dough disk out to the diameter of your pie tray on the flour surface using a rolling pin (or a cup).
 Form pie crusts into your pie tray.
+Rolling and forming the crust can be attempted 2-3 times before you'd ruin the crust.
 Bake for 20 minutes at 375 degrees F.
 Bubbles often form; just poke a few holes when the crust is done to let air out.
 Sprinkle sugar across the pie crust.
@@ -57,8 +58,6 @@ Sprinkle sugar across the pie crust.
 The pie crust is now half-cooked and is ready for filling to be added.
 If you want to save this crust for later, bake it for 10-20 more minutes at 375 degrees F, until the edges are browned.
 You can then refrigerate this airtight for up to 3 days or you can freeze it for up to 3 months.
-
-`\pagebreak`{=latex}
 
 ## Apple Pie Filling (1)
 
@@ -92,7 +91,18 @@ Bake for 20-25 minutes at 375 degrees F.
 
 Let the pie cool for at least 2 hours at room temperature, but preferably 4 hours.
 
-## Apple Pie Topping (1)
+## Berry Pie Filling (1)
+
+|Amount|Ingredient|
+| ---:| --- |
+|5 1/2 c|mixed berries|
+|1 c|sugar|
+|1/4 c|cornstarch|
+|1 T|lemon juice|
+
+Table: Berry pie filling ingredients.
+
+## Pie Crumble Topping (1)
 
 |Amount|Ingredient|
 | ---:| --- |

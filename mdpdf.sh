@@ -70,7 +70,7 @@ interpret_args() {
   set -- "${make_args[@]}"
 }
 
-compile_each_pdf() {
+compile_each_file() {
   # place dependencies within target folder (due to limitations with GNUMake)
   if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm -f "$target_dir/Makefile"
@@ -97,7 +97,7 @@ main() {
   fi
   test_dependency pandoc
   test_dependency pdflatex
-  compile_each_pdf
+  compile_each_file
 }
 
 main "$@"
