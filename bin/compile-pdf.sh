@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ! this is called from the Makefile !
 # ? compile-pdf.sh "file.tex" "output-dir" "build-dir" $(LATEX_ARGS)
 # ! dependencies !

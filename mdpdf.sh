@@ -76,17 +76,14 @@ compile_each_file() {
     rm -f "$target_dir/Makefile"
     cp "$script_dir/Makefile" "$target_dir/Makefile"
   fi
-  rm -rf "$target_dir/mdpdf-bin"
-  cp -r "$bin_dir" "$target_dir/mdpdf-bin"
 
   # use make to compile each pdf
-  make -C "$target_dir" ${make_args[@]} DATA_DIR="$data_dir" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
+  make -C "$target_dir" ${make_args[@]} BIN_DIR="$bin_dir" DATA_DIR="$data_dir" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
 
   # remove dependencies from target folder
   if ! [[ "$target_dir" == "$script_dir" ]]; then
     rm "$target_dir/Makefile"
   fi
-  rm -r "$target_dir/mdpdf-bin"
 }
 
 main() {

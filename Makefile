@@ -9,6 +9,7 @@ SRC_DIR := .
 BUILD_DIR := build
 OUT_DIR := .
 DATA_DIR ?=
+BIN_DIR ?=
 PANDOC_ARGS ?=
 LATEX_ARGS ?=
 
@@ -26,12 +27,14 @@ all : $(BUILDS) $(OUTS)
 $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 	@mkdir -p "$(OUT_DIR)"
 	@echo "Compiling $(BOLD)$@$(SGR0)..."
-	@-./mdpdf-bin/compile-pdf.sh "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)
+	@-"$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)
+#	@-./mdpdf-bin/compile-pdf.sh "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 	@mkdir -p "$(BUILD_DIR)"
 	@echo "Building $(BOLD)$@$(SGR0)..."
-	@-./mdpdf-bin/compile-latex.sh "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
+	@-"$(BIN_DIR)/compile-latex.sh" "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
+#	@-./mdpdf-bin/compile-latex.sh "$<" "$@" "$(DATA_DIR)" $(PANDOC_ARGS)
 
 clean :
 	@echo "Cleaning..."; $(RM) -r $(BUILD_DIR) $(OUTS)

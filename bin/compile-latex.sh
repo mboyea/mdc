@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ! this is called from the Makefile !
 # ? compile-latex.sh "file.md" "file.pdf" "data-dir" $(PANDOC_ARGS)
 # ! dependencies !

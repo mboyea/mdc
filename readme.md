@@ -50,4 +50,4 @@ Type `<script-name> -h` into the terminal to view the supported usage of that sc
 
 | script-name | description |
 |:----------- |:----------- |
-| `mdpdf` | compile .md files (Markdown) int .pdf files (Portable Display Format) |
+| `mdpdf` | compile .md files (Markdown) into .pdf files (Portable Display Format) |
