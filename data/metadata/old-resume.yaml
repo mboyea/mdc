@@ -1,7 +1,0 @@
-documentclass: report
-fontsize: 11pt
-geometry: letterpaper, margin=0.5in
-microtypeoptions: tracking = true, letterspace = 500
-# ! header-includes: is overwritten by --include-in-header
-# header-includes:
-#   - '`\renewcommand{\maketitle}{}`{=latex}'
