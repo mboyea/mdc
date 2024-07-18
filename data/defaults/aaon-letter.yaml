@@ -1,5 +1,8 @@
 metadata-file: letterpaper.yaml
-include-in-header:
+# include-in-header:
+#   - ${USERDATA}/includes/aaon-letter-header.latex
+include-before-body:
   - ${USERDATA}/includes/aaon-letter-header.latex
-# include-before-body:
 # include-after-body:
+variables:
+  graphics: true
