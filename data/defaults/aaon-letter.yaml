@@ -1,8 +1,13 @@
-metadata-file: letterpaper.yaml
-# include-in-header:
-#   - ${USERDATA}/includes/aaon-letter-header.latex
-include-before-body:
-  - ${USERDATA}/includes/aaon-letter-header.latex
-# include-after-body:
 variables:
   graphics: true
+  # variables are inserted verbatim into template so use this instead of metadata: header-includes
+metadata:
+  geometry: letterpaper, top=1.0in, right=1.0in, bottom=1.0in, left=1.0in
+  colorlinks: true
+#   header-includes: |
+#     `\renewcommand{\maketitle}{}`{=latex}
+include-in-header:
+  - ${USERDATA}/includes/aaon-letter-header.latex
+# include-before-body:
+#   - ${USERDATA}/includes/aaon-letter-header.latex
+# include-after-body:

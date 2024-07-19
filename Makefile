@@ -6,7 +6,7 @@
 
 # directories
 SRC_DIR := .
-BUILD_DIR := build
+BUILD_DIR := pdf-build
 OUT_DIR := .
 DATA_DIR ?=
 BIN_DIR ?=
