@@ -10,6 +10,8 @@ keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, 
 I use these scripts to convert my Markdown files into other document formats at work.
 The Windows installation process does not require administrator privileges at any step, so the pesky IT department won't disallow it.
 
+![Screenshot of the resume example in the VSCode workspace.](./data/imgs/vscode-workspace-example-resume.jpg)
+
 ### Install (Windows)
 
 - Install [Pandoc for Windows](https://github.com/jgm/pandoc/releases/)
