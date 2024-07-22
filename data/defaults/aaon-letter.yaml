@@ -1,11 +1,27 @@
 variables:
   graphics: true
-  # variables are inserted verbatim into template so use this instead of metadata: header-includes
+  # ! variables are inserted verbatim into template (don't sufferf rom backslash escaping) so use this instead of metadata for defining header-includes
 metadata:
   geometry: letterpaper, top=1.0in, right=1.0in, bottom=1.0in, left=1.0in
   colorlinks: true
 #   header-includes: |
 #     `\renewcommand{\maketitle}{}`{=latex}
+# ! header-includes:
+# !   - |
+# !     ```{=latex}
+# !     $for(author)$
+# !     $if(author.name)$
+# !     $author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
+# !     $else$
+# !     $author$
+# !     $endif$
+# !     $endfor$
+# !     ```
+# ! include-before:
+# !   - '`\newpage{}`{=latex}'
+# ! include-after:
+# ? should use include-in-header or header-includes?
+# ! include-in-header overwrites header-includes if set in metadata or variables
 include-in-header:
   - ${USERDATA}/includes/aaon-letter-header.latex
 # include-before-body:
