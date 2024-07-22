@@ -7,9 +7,10 @@ keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, 
 ---
 ## Scripts to compile plaintext Markdown documents into other formats using Pandoc + Makefile
 
-I use these scripts to process documents at work.
+I use these scripts to convert my Markdown files into other document formats at work.
+The Windows installation process does not require administrator privileges at any step, so the pesky IT department won't disallow it.
 
-### Install (Windows w/o Administrator Privileges)
+### Install (Windows)
 
 - Install [Pandoc for Windows](https://github.com/jgm/pandoc/releases/)
 - Install [MiKTeX (LaTeX for Windows)](https://miktex.org/download)
@@ -19,6 +20,50 @@ I use these scripts to process documents at work.
 - In `C:\msys64\home\<user>\.bashrc` add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In `C:\msys64\home\<user>\.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 - In `C:\msys64\ucrt64.ini` uncomment line `MSYS2_PATH_TYPE=inherit`
+
+Now you can use `mdpdf` in the MSYS2 UCRT64 terminal to process your documents.
+This terminal is capable of running most other Linux tools too, natively in Windows (without WSL).
+You can find the package list on [msys2.org](https://packages.msys2.org/package/), or search the database with the terminal using `pacman -Ss string1 string2 ...`.
+
+### Integrate Into VSCode (Windows)
+
+My favorite Windows text editor is Visual Studio Code
+
+- Open VSCode
+- Open `User Settings (JSON)` using `Ctrl+Shift+P`
+- Add lines:
+
+```json
+{
+  // "terminal.integrated.shellIntegration.enabled": false, // fix slow terminals
+  "terminal.integrated.profiles.windows": {
+    "MSYS2": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
+      "args": [
+        "--login"
+      ],
+      "env": {
+        "MSYSTEM": "UCRT64",
+        "MSYS2_PATH_TYPE": "inherit",
+        "CHERE_INVOKING": "1",
+      }
+    }
+  },
+  "terminal.integrated.env.windows": {
+    // "HOME": "C:\\path\\to\\custom\\home\\dir", // change home directory
+    "MSVSCODE": "1"
+  },
+  "terminal.integrated.defaultProfile.windows": "MSYS2",
+  "settingsSync.ignoredSettings": [
+    "terminal.integrated.profiles.windows",
+    "terminal.integrated.env.windows",
+    "terminal.integrated.defaultProfile.windows"
+  ]
+}
+```
+
+Now MSYS2 UCRT64 is your default terminal in VSCode.
+Open it with `` Ctrl+` ``.
 
 ### Install (Arch Linux)
 
