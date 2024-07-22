@@ -87,7 +87,7 @@ variables:
     \titlespacing{\section}
     {0pt}
     {-0.4em}
-    {-0.4em}[0pt]
+    {0.0em}[0pt]
     % set subsection heading styles
     \titleformat{\subsection}[hang]
     {\centering\rmfamily\Large\uppercase}
