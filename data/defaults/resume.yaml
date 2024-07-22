@@ -50,7 +50,7 @@ variables:
     % set list styles
     \usepackage{enumitem}
     \setlist{leftmargin=2em,labelsep=0.5em,labelwidth=0.5em,rightmargin=0.5em}
-    % set header/footer styles
+    % set header and footer
     \usepackage[compact, pagestyles]{titlesec}
     \newpagestyle{main}[]{
       \sethead[][][]{}{}{}
@@ -68,25 +68,26 @@ variables:
     }
     \makeatother
     % set chapter heading styles
+    \titleclass{\chapter}{straight}
     \titleformat{\chapter}[hang]
     {\centering\rmfamily\huge\uppercase}
     {}
     {0pt}
-    {\titlerule[0.6pt]\vspace{-0.3em}}[]
+    {}[]
     \titlespacing{\chapter}
     {0pt}
-    {-0.4em}
-    {-1.0em}[0pt]
+    {-0.8em}
+    {-0.4em}[0pt]
     % set section heading styles
     \titleformat{\section}[hang]
     {\centering\rmfamily\LARGE\uppercase}
     {}
     {0pt}
-    {\titlerule[1.6pt]\vspace{-0.2em}}[]
+    {}[]
     \titlespacing{\section}
     {0pt}
-    {1.2em}
-    {-0.1em}[0pt]
+    {-0.4em}
+    {-0.4em}[0pt]
     % set subsection heading styles
     \titleformat{\subsection}[hang]
     {\centering\rmfamily\Large\uppercase}
@@ -113,6 +114,12 @@ variables:
     %%% CUSTOM ENVIRONMENTS %%%
     
     \usepackage{environ}
+    \NewEnviron{documentheader}{%
+      \rule{\textwidth}{0.6pt}
+      \BODY
+      \vspace{-1.0em}
+      \rule{\textwidth}{1.6pt}
+    }
     \NewEnviron{tricolumn}{%
       \begin{minipage}[t]{0.33\textwidth}
       \BODY

@@ -13,10 +13,3 @@ variables:
     % set background
     \usepackage{background}
     \backgroundsetup{contents={\includegraphics[width=\paperwidth]{imgs/aaon-letterhead.png}},scale=1,opacity=1,placement=top}
-    % set header and footer
-    \setlength\headheight{1in}
-    \usepackage[compact, pagestyles]{titlesec}
-    \newpagestyle{main}[]{
-      \sethead[][][]{}{}{}
-      \setfoot[][][]{}{}{}
-    }

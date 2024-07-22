@@ -1,6 +1,6 @@
 ---
 title: Pandoc Scripts
-author: [Matthew Terrance Carlos Boyea]
+author: [Matthew T. C. Boyea]
 lang: en
 subject: pandoc
 keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]

@@ -7,6 +7,8 @@ subject: resume
 keywords: [resume, cv, markdown, latex, software, engineer, programmer, matthew, boyea]
 default_: resume
 ---
+`\begin{documentheader}`{=latex}
+
 # Matthew T. C. Boyea
 
 `{\large`{=latex}
@@ -27,6 +29,7 @@ default_: resume
 --->
 
 `}`{=latex}
+`\end{documentheader}`{=latex}
 
 ## Full-Stack Software Engineer
 
