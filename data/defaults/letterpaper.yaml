@@ -1,6 +1,1 @@
 metadata-file: letterpaper.yaml
-# include-in-header:
-#   - ${USERDATA}/includes/old-resume-header.latex
-# include-before-body:
-# include-after-body:
-

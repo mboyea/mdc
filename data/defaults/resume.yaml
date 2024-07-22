@@ -1,0 +1,147 @@
+top-level-division: chapter
+metadata:
+  documentclass: report
+  fontsize: 11pt
+  geometry: letterpaper, margin=0.5in
+  microtypeoptions: tracking = true, letterspace = 500
+  graphics: true
+  colorlinks: true
+variables:
+  header-includes: |
+    
+    %%% CUSTOM COMMANDS %%%
+    
+    % center the contents inline - intended to center images
+    \newcommand{\inlineicon}[1]{$\vcenter{\hbox{#1}}\;$}
+    
+    %%% END CUSTOM COMMANDS %%%
+    
+    %%% CUSTOM DOCUMENT STYLES %%%
+    
+    % set paper type, size, & font size
+    % ! \documentclass[11pt,letterpaper]{report}
+    % set margins
+    % ! \usepackage[margin=0.5in]{geometry}
+    % disable title page (added automatically by pandoc)
+    \renewcommand{\maketitle}{}
+    % set line spacing
+    \usepackage{setspace}
+    \setstretch{1.15}
+    % load fonts
+    % defaults: cmr cmss cmtt
+    \usepackage{mathptmx} % ptm
+    \usepackage{courier} % pcr
+    \usepackage{tgadventor} % qag
+    \usepackage{tgbonum} % qbk
+    % set default fonts
+    \renewcommand{\rmdefault}{qbk}
+    % \renewcommand{\rmdefault}{ptm}
+    \renewcommand{\sfdefault}{qag}
+    \renewcommand{\ttdefault}{pcr}
+    % \newcommand{\altrmdefault}{qbk}
+    % \newcommand{\altrmfamily}{\fontfamily{\altrmdefault}\selectfont}
+    \renewcommand\familydefault{\sfdefault}
+    % set character spacing
+    % ! \usepackage[tracking = true, letterspace = 500]{microtype}
+    % set word spacing
+    % ? TODO insert microtype interword spacing
+    % disable protrusion for ttfonts
+    \UseMicrotypeSet[protrusion]{basicmath}
+    % set list styles
+    \usepackage{enumitem}
+    \setlist{leftmargin=2em,labelsep=0.5em,labelwidth=0.5em,rightmargin=0.5em}
+    % set header/footer styles
+    \usepackage[compact, pagestyles]{titlesec}
+    \newpagestyle{main}[]{
+      \sethead[][][]{}{}{}
+      \setfoot[][][]{}{}{}
+    }
+    \pagestyle{main}
+    % set header/footer styles for pages with \chapter heading
+    \makeatletter
+    \renewcommand\chapter{
+      \if@openright\cleardoublepage\else\clearpage\fi
+      \thispagestyle{main}% original style: plain
+      \global\@topnum\z@
+      \@afterindentfalse
+      \secdef\@chapter\@schapter
+    }
+    \makeatother
+    % set chapter heading styles
+    \titleformat{\chapter}[hang]
+    {\centering\rmfamily\huge\uppercase}
+    {}
+    {0pt}
+    {\titlerule[0.6pt]\vspace{-0.3em}}[]
+    \titlespacing{\chapter}
+    {0pt}
+    {-0.4em}
+    {-1.0em}[0pt]
+    % set section heading styles
+    \titleformat{\section}[hang]
+    {\centering\rmfamily\LARGE\uppercase}
+    {}
+    {0pt}
+    {\titlerule[1.6pt]\vspace{-0.2em}}[]
+    \titlespacing{\section}
+    {0pt}
+    {1.2em}
+    {-0.1em}[0pt]
+    % set subsection heading styles
+    \titleformat{\subsection}[hang]
+    {\centering\rmfamily\Large\uppercase}
+    {}
+    {0pt}
+    {\titlerule[0.6pt]\vspace{-0.4em}}[{\vspace{0.1em}\titlerule[1.6pt]}]
+    \titlespacing{\subsection}
+    {0pt}
+    {1.5em}
+    {0.5em}[0pt]
+    % set subsubsection heading styles
+    \titleformat{\subsubsection}[hang]
+    {\sffamily\normalsize}
+    {}
+    {0pt}
+    {}[]
+    \titlespacing{\subsubsection}
+    {0pt}
+    {0.2em}
+    {-0.1em}[0pt]
+    
+    %%% END CUSTOM DOCUMENT STYLES
+    
+    %%% CUSTOM ENVIRONMENTS %%%
+    
+    \usepackage{environ}
+    \NewEnviron{tricolumn}{%
+      \begin{minipage}[t]{0.33\textwidth}
+      \BODY
+      \end{minipage}
+    }
+    \NewEnviron{bicolumn}{%
+      \begin{minipage}[t]{0.499\textwidth}
+      \BODY
+      \end{minipage}
+    }
+    \usepackage{transparent}
+    \NewEnviron{hide}{
+    %  \renewcommand\subsection[1]{%
+    %    \refstepcounter{subsection}%
+    %    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}##1}%
+    %    \subsectionmark{##1}%
+    %  }%
+      \transparent{0}
+      \setstretch{0}
+      % remove subsection heading spacing
+      \titlespacing{\subsection}
+      {0pt}
+      {0em}
+      {0em}[0pt]
+      \BODY
+    }
+    
+    %%% END CUSTOM ENVIRONMENTS %%%
+    
+  include-before: |
+
+  include-after: |

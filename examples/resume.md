@@ -1,32 +1,30 @@
 ---
 lang: en
-title: MTCB's Old Software Engineer Resume
+title: Matthew T. C. Boyea
 author: [Matthew T. C. Boyea]
 date: March, 2024
 subject: resume
 keywords: [resume, cv, markdown, latex, software, engineer, programmer, matthew, boyea]
-default_: old-resume
+default_: resume
 ---
 # Matthew T. C. Boyea
 
 `{\large`{=latex}
 
+[`\inlineicon{`{=latex}![Phone icon.](imgs/icons8-phone-500.png){height=1.15em}`}`{=latex}000.000.0000](tel:0000000000)
+ `\hfill`{=latex}
+[`\inlineicon{`{=latex}![Email icon.](imgs/icons8-email-90.png){height=1.2em}`}`{=latex}contact@mboyea.com](mailto:contact@mboyea.com)
+`\hfill`{=latex}
+[`\inlineicon{`{=latex}![Portfolio icon.](imgs/icons8-portfolio-96.png){height=1.25em}`}`{=latex}mboyea.com](https://www.mboyea.com)
+`\hfill`{=latex}
+[`\inlineicon{`{=latex}![GitHub icon.](imgs/icons8-github-144.png){height=1.25em}`}`{=latex}github.com/mboyea](https://github.com/mboyea)
+`\hfill`{=latex}
 <!---
-[`\inlineicon{`{=latex}![Phone icon.](media/icons8-phone-500.png){height=1.15em}`}`{=latex}000.000.0000](tel:0000000000)
-`\hfill`{=latex}
--->
+[`\inlineicon{`{=latex}![Location icon.](imgs/icons8-location-100.png){height=1.15em}`}`{=latex}Atchison, KS](https://maps.app.goo.gl/7hCM6NohKpQa6KnB8)
+--->
 <!---
-[`\inlineicon{`{=latex}![Email icon.](media/icons8-email-90.png){height=1.2em}`}`{=latex}contact@mboyea.com](mailto:contact@mboyea.com)
-`\hfill`{=latex}
-[`\inlineicon{`{=latex}![Portfolio icon.](media/icons8-portfolio-96.png){height=1.25em}`}`{=latex}mboyea.com](https://www.mboyea.com)
-`\hfill`{=latex}
-[`\inlineicon{`{=latex}![GitHub icon.](media/icons8-github-144.png){height=1.25em}`}`{=latex}github.com/mboyea](https://github.com/mboyea)
-`\hfill`{=latex}
-[`\inlineicon{`{=latex}![Location icon.](media/icons8-location-100.png){height=1.15em}`}`{=latex}Atchison, KS](https://maps.app.goo.gl/7hCM6NohKpQa6KnB8)
--->
-<!---
-[`\inlineicon{`{=latex}![LinkedIn icon.](media/icons8-linkedin-500.png){.inline-icon height=1.25em}`}`{=latex}linkedin.com/in/mboyea](https://www.linkedin.com/in/mboyea/)
--->
+[`\inlineicon{`{=latex}![LinkedIn icon.](imgs/icons8-linkedin-500.png){.inline-icon height=1.25em}`}`{=latex}linkedin.com/in/mboyea](https://www.linkedin.com/in/mboyea/)
+--->
 
 `}`{=latex}
 
@@ -34,9 +32,8 @@ default_: old-resume
 
 `{\large`{=latex}
 
-Multidisciplined software engineer with **2.5 years of diverse field experience**.
-Fascinated by the potential of software since 2018.
-Seeks to improve the quality and accessibility of education, commerce, and media through web technologies.
+Multidisciplined software engineer, building software since 2018.
+Seeks to improve the quality and accessibility of education, commerce, and media through computer technologies.
 Highly organized and leadership-oriented.
 
 `}`{=latex}
