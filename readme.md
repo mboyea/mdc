@@ -20,7 +20,7 @@ The Windows installation process does not require administrator privileges at an
 - Install [MSYS2 (Linux build tools for Windows)](https://www.msys2.org/)
 - Install Git, Makefile, and WatchExec: In MSYS2 UCRT64, run `pacman -S git make mingw-w64-ucrt-x86_64-watchexec`
 - Clone this repository: In MSYS2 UCRT64, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In `C:\msys64\home\<user>\.bashrc` add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
+- In `C:\msys64\home\<user>\.bashrc` add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
 - In `C:\msys64\home\<user>\.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 - In `C:\msys64\ucrt64.ini` uncomment line `MSYS2_PATH_TYPE=inherit`
 
@@ -73,7 +73,7 @@ Open it with `` Ctrl+` ``.
 - Run `pacman -S texlive-basic texlive-latexrecommended texlive-latexextra texlive-fontsrecommended`
 - Install Pandoc: Get `pandoc-bin` from AUR **or** `pandoc-cli` from pacman *(do not install both)*
 - Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
+- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
 ### Install (NixOS Home Manager)
@@ -89,7 +89,7 @@ gnumake
 
 - Rebuild the config file with `home-manager switch`.
 - Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
+- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
 ### Script Usage
