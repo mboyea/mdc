@@ -1,16 +1,17 @@
 ---
-title: Pandoc Scripts
+title: Markdown Converter
 author: [Matthew T. C. Boyea]
 lang: en
 subject: pandoc
 keywords: [windows, linux, pandoc, markdown, md, latex, tex, gnumake, makefile, pdf, scripts]
+default_: report
 ---
-## Scripts to compile plaintext Markdown documents into other formats using Pandoc + Makefile
+## Markdown Converter (mdc) compiles Markdown plaintext documents into other formats using Pandoc + Makefile
 
-I use these scripts to convert my Markdown files into other document formats at work.
-The Windows installation process does not require administrator privileges at any step, so the pesky IT department won't disallow it.
+I use these scripts to convert my Markdown files into other document formats at work and on my home computer.
+The Windows installation process does not require administrator privileges at any step, so **the IT department** doesn't disallow it.
 
-![Screenshot of the resume example in the VSCode workspace.](./data/imgs/vscode-workspace-example-resume.jpg)
+![Screenshot of the resume example in a VSCode workspace.](./data/imgs/vscode-workspace-example-resume.jpg)
 
 ### Install (Windows)
 
@@ -18,7 +19,7 @@ The Windows installation process does not require administrator privileges at an
 - Install [MiKTeX (LaTeX for Windows)](https://miktex.org/download)
 - Install [MSYS2 (Linux build tools for Windows)](https://www.msys2.org/)
 - Install Git, Makefile, and WatchExec: In MSYS2 UCRT64, run `pacman -S git make mingw-w64-ucrt-x86_64-watchexec`
-- Clone this repository: In MSYS2 UCRT64, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/pandoc-scripts`
+- Clone this repository: In MSYS2 UCRT64, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
 - In `C:\msys64\home\<user>\.bashrc` add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In `C:\msys64\home\<user>\.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 - In `C:\msys64\ucrt64.ini` uncomment line `MSYS2_PATH_TYPE=inherit`
@@ -71,7 +72,7 @@ Open it with `` Ctrl+` ``.
 
 - Run `pacman -S texlive-basic texlive-latexrecommended texlive-latexextra texlive-fontsrecommended`
 - Install Pandoc: Get `pandoc-bin` from AUR **or** `pandoc-cli` from pacman *(do not install both)*
-- Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/pandoc-scripts`
+- Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
 - In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
@@ -87,7 +88,7 @@ gnumake
 ```
 
 - Rebuild the config file with `home-manager switch`.
-- Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/pandoc-scripts`
+- Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
 - In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/pandoc-scripts/mdpdf.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
