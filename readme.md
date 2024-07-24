@@ -66,7 +66,7 @@ My favorite Windows text editor is Visual Studio Code
 ```
 
 Now MSYS2 UCRT64 is your default terminal in VSCode.
-Open it with `` Ctrl+` ``.
+Open it with `` Ctrl+Shift+` ``.
 
 ### Install (Arch Linux)
 
