@@ -149,3 +149,4 @@ Graduated from University *3 years early* while developing career, ideals, and s
 #### **KAMS Certificate of Completion** at *Fort Hays State University* `\hfill`{=latex} 08/20 - 05/22
 
 #### **High School Diploma** at *Pleasant Ridge High School* `\hfill`{=latex} 08/18 - 05/22
+
