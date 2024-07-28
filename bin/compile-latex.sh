@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ! this is called from the Makefile !
 # ? compile-latex.sh "file.md" "file.pdf" "data-dir" $(PANDOC_ARGS)
@@ -24,4 +24,6 @@ main() {
   pandoc --from=markdown --to=latex --standalone "$input_file" --output="$output_file" --data-dir="$data_dir" "$DEFAULTS_FILES_ARG" "$TEMPLATE_FILE_ARG" "$METADATA_DATE_ARG" "$@"
 }
 
-main "$@"
+# main "$@"
+
+
