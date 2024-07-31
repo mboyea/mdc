@@ -16,10 +16,13 @@ main() {
   # intepret metadata #
   # if template_: found in header, use the following value as argument --template
   TEMPLATE_FILE_ARG=$(sed -n 's/^template_:[ ][ ]*\(.*\)/\1/p' "$input_file" | sed 's/^\(..*\)$/--template=\1/' | { grep . || echo '--template=default'; })
+  TEMPLATE_FILE_ARG=$(echo "$TEMPLATE_FILE_ARG" | tr -d '\r') # remove carriage return introduced by Windows
   # if default_: found in header, use the following value as argument --defaults
   DEFAULTS_FILES_ARG=$(sed -n 's/^default_:[ ][ ]*\(.*\)/\1/p' "$input_file" | sed 's/^\(..*\)$/--defaults=\1/' | { grep . || echo '--defaults=letterpaper'; })
+  DEFAULTS_FILES_ARG=$(echo "$DEFAULTS_FILES_ARG" | tr -d '\r') # remove carriage return introduced by Windows
   # if date: not found in header, use the current date as argument --metadata=date
   METADATA_DATE_ARG=$(sed -n 's/^date:[ ][ ]*\(.*\)/\1/p' "$input_file" | sed 's/^\(..*\)$/--metadata=/' | { grep . || echo "--metadata=date:$(date '+%B %e, %Y')"; })
+  METADATA_DATE_ARG=$(echo "$METADATA_DATE_ARG" | tr -d '\r') # remove carriage return introduced by Windows
   # compile Markdown to LaTeX #
   pandoc --from=markdown --to=latex --standalone "$input_file" --output="$output_file" --data-dir="$data_dir" "$DEFAULTS_FILES_ARG" "$TEMPLATE_FILE_ARG" "$METADATA_DATE_ARG" "$@"
 }
