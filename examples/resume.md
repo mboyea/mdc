@@ -35,7 +35,7 @@ default_: resume
 
 `{\large`{=latex}
 
-Multidisciplined software engineer, building software since 2018.
+Multidisciplined software engineer, building applications since 2018.
 Seeks to improve the quality and accessibility of education, commerce, and media through computer technologies.
 Highly organized and leadership-oriented.
 
@@ -149,4 +149,3 @@ Graduated from University *3 years early* while developing career, ideals, and s
 #### **KAMS Certificate of Completion** at *Fort Hays State University* `\hfill`{=latex} 08/20 - 05/22
 
 #### **High School Diploma** at *Pleasant Ridge High School* `\hfill`{=latex} 08/18 - 05/22
-

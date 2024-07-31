@@ -1,10 +1,10 @@
-# metadata backslash escapes its strings
+# metadata declares strings with backslash escapes
 metadata:
-  geometry: letterpaper, top=1.0in, right=1.0in, bottom=1.0in, left=1.0in
+  geometry: letterpaper, top=1.6in, right=1.0in, bottom=1.0in, left=1.0in
   colorlinks: true
   highlight-style: espresso
   graphics: true
-# variables are inserted verbatim
+# variables declares strings verbatim
 variables:
   # ! --include-in-header overwrites header-includes
   header-includes: |
@@ -13,3 +13,16 @@ variables:
     % set background
     \usepackage{background}
     \backgroundsetup{contents={\includegraphics[width=\paperwidth]{imgs/aaon-letterhead.png}},scale=1,opacity=1,placement=top}
+    % set header and footer style
+    \usepackage[compact, pagestyles]{titlesec}
+    \makeatletter
+    \newpagestyle{main}[]{
+      \sethead[][][]{}{}{}
+      \setfoot[\@title][\thepage][\@author]{\@title}{\thepage}{\@author}
+    }
+    \makeatother
+    \pagestyle{main}
+  include-before: |
+    \makeatletter
+    \@date
+    \makeatother
