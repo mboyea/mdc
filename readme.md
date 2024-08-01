@@ -20,11 +20,11 @@ The Windows installation process does not require administrator privileges at an
 - Install [MSYS2 (Linux build tools for Windows)](https://www.msys2.org/)
 - Install Git, Makefile, and WatchExec: In MSYS2 UCRT64, run `pacman -S git make mingw-w64-ucrt-x86_64-watchexec`
 - Clone this repository: In MSYS2 UCRT64, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In `C:\msys64\home\<user>\.bashrc` add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
+- In `C:\msys64\home\<user>\.bashrc` add line `alias mdc='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdc.sh'`
 - In `C:\msys64\home\<user>\.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 - In `C:\msys64\ucrt64.ini` uncomment line `MSYS2_PATH_TYPE=inherit`
 
-Now you can use `mdpdf` in the MSYS2 UCRT64 terminal to process your documents.
+Now you can use `mdc` in the MSYS2 UCRT64 terminal to process your documents.
 This terminal is capable of running most other Linux tools too, natively in Windows (without WSL).
 You can find the package list on [msys2.org](https://packages.msys2.org/package/), or search the database with the terminal using `pacman -Ss string1 string2 ...`.
 
@@ -65,6 +65,8 @@ My favorite Windows text editor is Visual Studio Code
 }
 ```
 
+- Save the file.
+
 Now MSYS2 UCRT64 is your default terminal in VSCode.
 Open it with `` Ctrl+Shift+` ``.
 
@@ -73,7 +75,7 @@ Open it with `` Ctrl+Shift+` ``.
 - Run `pacman -S texlive-basic texlive-latexrecommended texlive-latexextra texlive-fontsrecommended`
 - Install Pandoc: Get `pandoc-bin` from AUR **or** `pandoc-cli` from pacman *(do not install both)*
 - Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
+- In your `.bashrc`, add line `alias mdc='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdc.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
 ### Install (NixOS Home Manager)
@@ -89,13 +91,13 @@ gnumake
 
 - Rebuild the config file with `home-manager switch`.
 - Clone this repository: In your shell, `cd` to the directory you want to install this repository and run `git clone https://github.com/mboyea/mdc`
-- In your `.bashrc`, add line `alias mdpdf='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdpdf.sh'`
+- In your `.bashrc`, add line `alias mdc='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdc.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
 ### Script Usage
 
-Type `<script-name> -h` into the terminal to view the supported usage of that script.
+Type `mdc <script-name> -h` into the terminal to view the supported usage of that script.
 
 | script-name | description |
 |:----------- |:----------- |
-| `mdpdf` | compile .md files (Markdown) into .pdf files (Portable Display Format) |
+| `mdc` | compile .md files (Markdown) into .pdf files (Portable Display Format) |

@@ -20,7 +20,7 @@ test_dependency() {
 
 print_help() {
   echo "Use Pandoc to convert Markdown+LaTeX to PDF"
-  echo "mdpdf [OPTIONS]... [MAKE ARGUMENTS]..."
+  echo "mdc [OPTIONS]... [MAKE ARGUMENTS]..."
   echo "___________________________________________"
   echo "OPTIONS:"
   echo "  -h            --help"
