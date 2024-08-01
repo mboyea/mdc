@@ -28,9 +28,9 @@ $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 	@mkdir -p "$(OUT_DIR)"
 	@echo "Compiling $(BOLD)$@$(SGR0)..."
 	@if pdflatex --version | grep -q 'MikTeX'; then \
-	  (export TEXINPUTS="$(DATA_DIR)" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
+		(export TEXINPUTS="$(DATA_DIR)" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
 	else \
-	  (export TEXINPUTS=".;$(DATA_DIR);" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
+		(export TEXINPUTS=".;$(DATA_DIR);" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
 	fi
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
