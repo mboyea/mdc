@@ -27,8 +27,11 @@ all : $(BUILDS) $(OUTS)
 $(OUT_DIR)/%.pdf : $(BUILD_DIR)/%.tex
 	@mkdir -p "$(OUT_DIR)"
 	@echo "Compiling $(BOLD)$@$(SGR0)..."
-	@(export TEXINPUTS="$(DATA_DIR)" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS))
-# TODO: grep pdflatex --version for "MikTeX" and if present, use "$(DATA_DIR)" and otherwise use ".;$(DATA_DIR);"
+	@if pdflatex --version | grep -q 'MikTeX'; then \
+	  (export TEXINPUTS="$(DATA_DIR)" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
+	else \
+	  (export TEXINPUTS=".;$(DATA_DIR);" && "$(BIN_DIR)/compile-pdf.sh" "$<" "$(OUT_DIR)" "$(BUILD_DIR)" $(LATEX_ARGS)) \
+	fi
 
 $(BUILD_DIR)/%.tex : $(SRC_DIR)/%.md
 	@mkdir -p "$(BUILD_DIR)"
