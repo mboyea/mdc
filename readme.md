@@ -8,12 +8,12 @@ default_: report
 ---
 ## Markdown Converter (mdc) compiles plaintext documents from Markdown into other formats using Pandoc + Makefile + Bash
 
-I use these scripts to convert my Markdown files into other document formats at work and on my home computer.
+I use these scripts to convert my Markdown files into other formats at work and on my home computer.
 The Windows installation process does not require administrator privileges at any step, so ***the IT department*** doesn't disallow it.
 
 ![Screenshot of the resume example in a VSCode workspace.](./data/imgs/vscode-workspace-example-resume.jpg)
 
-### Install (Windows)
+### Manual Install (Windows)
 
 - Install [Pandoc for Windows](https://github.com/jgm/pandoc/releases/)
 - Install [MiKTeX (LaTeX for Windows)](https://miktex.org/download)
@@ -37,7 +37,6 @@ My favorite Windows text editor is Visual Studio Code
 - Add lines:
 
 ```json
-{
   // "terminal.integrated.shellIntegration.enabled": false, // fix slow terminals
   "terminal.integrated.profiles.windows": {
     "MSYS2": {
@@ -53,7 +52,7 @@ My favorite Windows text editor is Visual Studio Code
     }
   },
   "terminal.integrated.env.windows": {
-    // "HOME": "C:\\path\\to\\custom\\home\\dir", // change home directory
+    // "HOME": "C:\\path\\to\\custom\\home\\dir", // change home directory (make sure to create a .bashrc and .bash_profile)
     "MSVSCODE": "1"
   },
   "terminal.integrated.defaultProfile.windows": "MSYS2",
@@ -62,7 +61,6 @@ My favorite Windows text editor is Visual Studio Code
     "terminal.integrated.env.windows",
     "terminal.integrated.defaultProfile.windows"
   ]
-}
 ```
 
 - Save the file.
@@ -70,7 +68,7 @@ My favorite Windows text editor is Visual Studio Code
 Now MSYS2 UCRT64 is your default terminal in VSCode.
 Open it with `` Ctrl+Shift+` ``.
 
-### Install (Arch Linux)
+### Manual Install (Arch Linux)
 
 - Run `pacman -S texlive-basic texlive-latexrecommended texlive-latexextra texlive-fontsrecommended`
 - Install Pandoc: Get `pandoc-bin` from AUR **or** `pandoc-cli` from pacman *(do not install both)*
@@ -78,7 +76,7 @@ Open it with `` Ctrl+Shift+` ``.
 - In your `.bashrc`, add line `alias mdc='<INSERT_PATH_TO_PANDOC_SCRIPTS>/mdc/mdc.sh'`
 - In your `.bash_profile` add line `if [ -f ~/.bashrc ]; then . ~/.bashrc; fi`
 
-### Install (NixOS Home Manager)
+### Manual Install (NixOS Home Manager)
 
 - Add packages to the config file:
 
@@ -96,8 +94,10 @@ gnumake
 
 ### Script Usage
 
-Type `mdc <script-name> -h` into the terminal to view the supported usage of that script.
+In the terminal, run `mdc --help` to view the script list.
+Run `mdc <script-name> --help` to view supported usage of any script.
 
-| script-name | description |
+| script call | description |
 |:----------- |:----------- |
-| `mdc` | compile .md files (Markdown) into .pdf files (Portable Display Format) |
+| `mdc help` | Print the script list, or print help for a specific script. |
+| `mdc pdf` | Compile %.md files (Markdown) into %.pdf files (Portable Display Format). |

@@ -1,100 +1,58 @@
 #!/usr/bin/env bash
 
 target_dir="$(pwd)"
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-bin_dir="$script_dir/bin"
-data_dir="$script_dir/data"
-make_args=()
-pandoc_args=()
-latex_args=()
-template_dir="$data_dir/templates"
+mdc_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+bin_dir="$mdc_dir/bin"
+data_dir="$mdc_dir/data"
+additonal_args=()
 
 echoerror() { echo "Error: $@" 1>&2; }
 
-test_dependency() {
-  if ! [ -x "$(command -v $1)" ]; then
-    echoerror The required program "$1" is not installed
-    exit 1
-  fi
-}
-
 print_help() {
-  echo "Use Pandoc to convert Markdown+LaTeX to PDF"
-  echo "mdc [OPTIONS]... [MAKE ARGUMENTS]..."
-  echo "___________________________________________"
-  echo "OPTIONS:"
-  echo "  -h            --help"
-  echo "  -w            --watch"
-  echo "  -p STRING     --pandoc-args STRING"
-  echo "  -l STRING     --latex-args STRING"
-  echo "  -t FILE       --template FILE"
+  echo "Use Pandoc to convert Markdown files to other formats"
+  echo "mdc [SCRIPT] [ARGUMENTS]..."
+  echo "_____________________________________________________"
+  echo "SCRIPTS:"
+  echo "  help            --help          -h"
+  echo "  pdf"
 }
 
 interpret_args() {
   while [[ $# -gt 0 ]]; do
     case $1 in
-      -h|--help)
+      help|--help|-h)
         is_help_arg=1
         shift
       ;;
-      -w|--watch)
-        is_watch_arg=1
-        shift
-        echoerror "The option "--watch" is not yet supported"
-      ;;
-      -p|--pandoc-args)
-        is_pandoc_args=1
-        pandoc_args+=("$2")
-        shift
-        shift
-      ;;
-      -l|--latex-args)
-        is_latex_args=1
-        latex_args+=("$2")
-        shift
-        shift
-      ;;
-      -t|--template)
-        is_template_arg=1
-        template_file="$template_dir/$2"
-        pandoc_args+=("--template='$template_file'")
-        shift
+      pdf)
+        is_pdf_arg=1
+        : "${script:="$bin_dir/mdc-pdf.sh"}"
         shift
       ;;
       *)
-        make_args+=("$1")
+        additonal_args+=("$1")
         shift
       ;;
     esac
   done
-  set -- "${make_args[@]}"
-}
-
-compile_each_file() {
-  # place dependencies within target folder (due to limitations with GNUMake)
-  if ! [[ "$target_dir" == "$script_dir" ]]; then
-    rm -f "$target_dir/Makefile"
-    cp "$script_dir/Makefile" "$target_dir/Makefile"
-  fi
-
-  # use make to compile each pdf
-  make -C "$target_dir" ${make_args[@]} BIN_DIR="$bin_dir" DATA_DIR="$data_dir" PANDOC_ARGS="${pandoc_args[@]}" LATEX_ARGS="${latex_args[@]}"
-
-  # remove dependencies from target folder
-  if ! [[ "$target_dir" == "$script_dir" ]]; then
-    rm "$target_dir/Makefile"
-  fi
+  set -- "${additonal_args[@]}"
 }
 
 main() {
   interpret_args "$@"
   if [[ $is_help_arg -eq 1 ]]; then
-    print_help
-    exit
+    if [[ -n "$script" ]]; then
+      "$script" --help
+    else
+      print_help
+    fi
+  elif [[ -n "$script" ]]; then
+    "$script" --target-dir "$target_dir" --bin-dir "$bin_dir" --data-dir "$data_dir" ${additonal_args[@]}
+  else
+    echoerror "No valid script identified among arguments '${additonal_args[@]}'"
+    echo "Run 'mdc --help' to see a list of valid scripts"
+    exit 1
   fi
-  test_dependency pandoc
-  test_dependency pdflatex
-  compile_each_file
 }
 
 main "$@"
