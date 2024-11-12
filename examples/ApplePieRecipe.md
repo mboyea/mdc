@@ -20,7 +20,7 @@ Table: Measurement legend.
 |Amount|Ingredient|
 | ---:| --- |
 |1/2 c|water (cold)|
-|2 t|vinegar (cold)|
+|2 T|vinegar (cold)|
 |1|egg (cold)|
 |2 3/4 c|flour|
 |1 T|brown sugar|
