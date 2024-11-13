@@ -25,7 +25,7 @@ Table: Measurement legend.
 |2 3/4 c|flour|
 |2 T|brown sugar|
 |1 t|salt|
-|1/4 t|baking powder|
+|1/2 t|baking powder|
 |1 c|unsalted butter (cold)|
 
 Table: Pie crust ingredients.
