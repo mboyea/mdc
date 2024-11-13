@@ -51,8 +51,8 @@ Sprinkle flour across the flat surface to prevent pie crust from sticking.
 Roll each dough disk out to the diameter of your pie tray on the flour surface using a rolling pin (or a cup).
 Form pie crusts into your pie tray.
 Rolling and forming the crust can be attempted 2-3 times before you'd ruin the crust.
-Bake for 20 minutes at 375 degrees F.
-Bubbles often form; just poke a few holes when the crust is done to let air out.
+Bake for 20-25 minutes at 375 degrees F.
+Bubbles may form; just poke a few holes when the crust is done to let air out.
 Sprinkle sugar across the pie crust.
 
 The pie crust is now half-cooked and is ready for filling to be added.
