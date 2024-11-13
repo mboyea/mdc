@@ -23,7 +23,7 @@ Table: Measurement legend.
 |2 T|vinegar (cold)|
 |1|egg (cold)|
 |2 3/4 c|flour|
-|1 T|brown sugar|
+|2 T|brown sugar|
 |1 t|salt|
 |1/4 t|baking powder|
 |1 c|unsalted butter (cold)|
