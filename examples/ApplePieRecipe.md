@@ -53,7 +53,6 @@ Form pie crusts into your pie tray.
 Rolling and forming the crust can be attempted 2-3 times before you'd ruin the crust.
 Bake for 20-25 minutes at 375 degrees F.
 Bubbles may form; just poke a few holes when the crust is done to let air out.
-Sprinkle sugar across the pie crust.
 
 The pie crust is now half-cooked and is ready for filling to be added.
 If you want to save this crust for later, bake it for 10-20 more minutes at 375 degrees F, until the edges are browned.
