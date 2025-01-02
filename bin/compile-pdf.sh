@@ -22,8 +22,8 @@ main() {
   while [[ true ]] ; do
     # compile the latex (or update references in .aux build file)
     pdflatex -output-directory="$output_dir" "$input_file_path" \
-      -interaction=batchmode -halt-on-error -file-line-error -shell-escape "$@" \
-      >/dev/null
+      -interaction=batchmode -halt-on-error -file-line-error -shell-escape "$@" #\
+      #>/dev/null
     compile_count=$(($compile_count + 1))
     # keep looping unless (allowed to compile again AND need to recompile to resolve LaTeX labels)
     if (
