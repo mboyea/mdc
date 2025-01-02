@@ -11,7 +11,7 @@ default_: report
 I use these scripts to convert my Markdown files into other formats at work and on my home computer.
 The Windows installation process does not require administrator privileges at any step, so ***the IT department*** doesn't disallow it.
 
-![Screenshot of the resume example in a VSCode workspace.](./data/imgs/vscode-workspace-example-resume.jpg)
+![Screenshot of the resume example in a VSCode workspace.](./data/imgs/vscode-workspace-example-resume.png)
 
 ### Manual Install (Windows)
 
