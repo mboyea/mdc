@@ -2,10 +2,10 @@
 lang: en
 title: Matthew T. C. Boyea
 author: [Matthew T. C. Boyea]
-date: March, 2024
+date: January, 2025
 subject: resume
 keywords: [resume, cv, markdown, latex, software, engineer, programmer, matthew, boyea]
-default_: resume-24-03
+default_: resume-25-01
 ---
 `\begin{documentheader}`{=latex}
 
