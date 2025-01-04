@@ -2,10 +2,10 @@
 lang: en
 title: Matthew T. C. Boyea
 author: [Matthew T. C. Boyea]
-date: January, 2025
+date: March, 2024
 subject: resume
 keywords: [resume, cv, markdown, latex, software, engineer, programmer, matthew, boyea]
-default_: resume-25-01
+default_: resume-24-03
 ---
 `\begin{documentheader}`{=latex}
 
@@ -143,8 +143,6 @@ Designed websites using WordPress (Elementor) for local businesses and governing
 ### Education
 
 #### **Bachelor of Science in Computer Science** at *Fort Hays State University* `\hfill`{=latex} 08/20 - 12/23
-
-Graduated from University *3 years early* while developing career, ideals, and skills.
 
 #### **KAMS Certificate of Completion** at *Fort Hays State University* `\hfill`{=latex} 08/20 - 05/22
 
