@@ -49,7 +49,7 @@ variables:
     \usepackage{enumitem}
     \setlist{leftmargin=2em,labelsep=0.5em,labelwidth=0.5em,rightmargin=0.5em}
 
-    % set header/footer of main page style
+    % set header/footer content of main page
     \usepackage[compact, pagestyles]{titlesec}
     \newpagestyle{main}[]{
       \sethead[][][]{}{}{}
@@ -58,15 +58,7 @@ variables:
     \pagestyle{main}
 
     % set page style to main when \chapter heading is used
-    \makeatletter
-    \renewcommand\chapter{
-      \if@openright\cleardoublepage\else\clearpage\fi
-      \thispagestyle{main}% original style: plain
-      \global\@topnum\z@
-      \@afterindentfalse
-      \secdef\@chapter\@schapter
-    }
-    \makeatother
+    \assignpagestyle{\chapter}{main} % original style: plain
 
     % set chapter heading styles
     \titleclass{\chapter}{straight}
@@ -125,6 +117,7 @@ variables:
     %%%%%%%% SET ENVIRONMENTS %%%%%%%%
     
     \usepackage{environ}
+
     \NewEnviron{documentheader}{%
       \rule{\textwidth}{0.6pt}
       \BODY
@@ -132,25 +125,13 @@ variables:
       \rule{\textwidth}{1.6pt}
     }
 
-    \NewEnviron{tricolumn}{%
-      \begin{minipage}[t]{0.33\textwidth}
-      \BODY
-      \end{minipage}
-    }
-
-    \NewEnviron{bicolumn}{%
-      \begin{minipage}[t]{0.499\textwidth}
-      \BODY
-      \end{minipage}
+    \NewEnviron{documentfooter}{%
+      \vfill
+      \small\raggedleft\BODY
     }
 
     \usepackage{transparent}
     \NewEnviron{hide}{
-    %  \renewcommand\subsection[1]{%
-    %    \refstepcounter{subsection}%
-    %    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}##1}%
-    %    \subsectionmark{##1}%
-    %  }%
       \transparent{0}
       \setstretch{0}
       % remove subsection heading spacing
@@ -160,6 +141,12 @@ variables:
       {0em}[0pt]
       \BODY
     }
+
+    % provide \begin{multicols}{n} to make content evenly distribute between n columns
+    \usepackage{multicol}
+    \setlength{\multicolsep}{0pt}
+    \setlength{\columnsep}{0pt}
+    \raggedcolumns
 
     %%%%%%%% END ENVIRONMENTS %%%%%%%%
 
