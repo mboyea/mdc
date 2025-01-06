@@ -8,18 +8,17 @@ keywords: [resume, cv, markdown, latex, software, engineer, programmer, matthew,
 default_: resume-25-01
 ---
 `\begin{documentheader}`{=latex}
+`{\large`{=latex}
 
 # Matthew T. C. Boyea
 
-`{\large`{=latex}
-
 [`\inlineicon{`{=latex}
 ![Phone icon.](imgs/icons8-phone-500.png){height=1.15em}
-`}`{=latex}000.000.0000](tel:0000000000)
+`}`{=latex}913.203.2484](tel:9132032484)
  `\hfill`{=latex}
 [`\inlineicon{`{=latex}
 ![Email icon.](imgs/icons8-email-90.png){height=1.2em}
-`}`{=latex}contact@mboyea.com](mailto:contact@mboyea.com)
+`}`{=latex}spam@mboyea.com](mailto:spam@mboyea.com)
 `\hfill`{=latex}
 [`\inlineicon{`{=latex}
 ![Portfolio icon.](imgs/icons8-portfolio-96.png){height=1.25em}
@@ -48,9 +47,8 @@ default_: resume-25-01
 
 `{\large`{=latex}
 
-Multidisciplined software engineer, building applications since 2018.
-Seeks to improve the quality and accessibility of education, commerce, and media through computer technologies.
-Highly organized and leadership-oriented.
+Highly organized and leadership-oriented software engineer.
+Improving the quality and accessibility of education, commerce, and media through computer technologies since 2018.
 
 `}`{=latex}
 `\vspace{0.4em}`{=latex}
@@ -62,20 +60,20 @@ Highly organized and leadership-oriented.
 `\begin{multicols}{3}`{=latex}
 
 - **Front-End Web Development**`\\`{=latex}
-HTML, CSS (Sass), JavaScript (Typescript, Webpack, React, Vue, Svelte, Solid, D3.js, Jest), WebGL (GLSL), Wordpress
+HTML, CSS (Sass), JavaScript (TypeScript, React, Vue, Svelte, Solid, D3.js), WebGL (GLSL)
+- **Back-End Web Development**`\\`{=latex}
+Node, Python (Flask)
 - **Desktop App Development**`\\`{=latex}
-Java, Assembly (x86), C++ (SDL2, SFML), C# (Unity)
-- **GUI & HMI**
-responsive design, accessibility (ADA, WCAG)
+Java, C# (Unity), C++ (SDL2, SFML), Assembly
 
 `\columnbreak`{=latex}
 
-- **Back-End Web Development**`\\`{=latex}
-microservices (AWS Lambda), Node, Python
+- **GUI & HMI**
+responsive design, accessibility (ADA, WCAG)
 - **Devops**
-Docker, CI/CD IAC (AWS SAM), Linux (Arch Linux, NixOS), Makefile, Shell Scripts (Bash), CLI Tools
+Linux (Arch, NixOS, Ubuntu, Alpine), Shell Scripts (Bash), Makefile, Docker, CI/CD IAC (Nix, AWS SAM, GitHub Actions)
 - **Database Administration**`\\`{=latex}
-SQL (Postgres, Oracle), ORM (Python SQLAlchemy)
+SQL (Postgres), ORM (Python SQLAlchemy)
 
 `\columnbreak`{=latex}
 
@@ -84,7 +82,7 @@ Agile (Scrum, Kanban), Jira
 - **QA**
 Unit Testing (Test Driven Development), Postman
 - **Digital Marketing**
-SEO, Product Placements, Call to Actions, Marketing Funnels
+Product Placements, Calls to Action, Marketing Funnels, SEO
 - **Embedded Systems**`\\`{=latex}
 Schematics (Cars, 4 Wheeler), Robotics (FANUC TP, Arduino)
 
@@ -92,49 +90,47 @@ Schematics (Cars, 4 Wheeler), Robotics (FANUC TP, Arduino)
 
 ### Work History
 
-#### **Full-Stack Software Engineer** for *Smart Warehousing LLC* `\hfill`{=latex} 05/22 - 05/23
-
-Worked with 2 teams using microservices (AWS, DataDog, Auth0) and Web UI Frameworks (React, Vue) to create cross-platform 3PL (third-party logistics) software for managing warehouse operations.
-
 `{\small`{=latex}
+
+#### **Full-Stack Software Engineer** for *Connect Webworks* `\hfill`{=latex} 09/24 - Present
+
+Created Lacuna CMS to reduce web costs by 80% and improve page speed by 10x compared to WordPress.
+Created the LanCouch VPN service to offer gamers the ability to play LAN games with their friends online.
+
+#### **Programmer I** for *AAON* `\hfill`{=latex} 05/24 - 9/24
+
+Responsible for software integration, logistics solutions, and product testing for a new PCB manufacturer.
+
 `\begin{multicols}{2}`{=latex}
 
-- Developed a mobile-friendly GUI to visualize tens of thousands of data points on an interactable map.
-- Contributed to 3 other projects during Agile sprints.
-- Introduced standards (Vue Style Guide, Callback Hell Guide) to produce maintainable code.
-- Revised GitHub PRs & used SemVer to improve QA.
+- Trained AI models to identify & flag product defects.
+- Generated work instructions and issue reports.
 
 `\end{multicols}`{=latex}
-`}`{=latex}
+
+#### **Front-End Software Engineer** for *Smart Warehousing LLC* `\hfill`{=latex} 05/22 - 05/23
+
+Created cross-platform third-party logistics (3PL) software to improve warehouse operations.
+
+`\begin{multicols}{2}`{=latex}
+
+- Prototyped an interactive map for [Smart Visibility](https://smartvisibility.io/) to visualize warehouse order data in real-time.
+- Contributed to the UI of software that guides pick and place operations for warehouse employees.
+
+`\end{multicols}`{=latex}
 
 #### **Robotics Education Researcher** for *Fort Hays State University* `\hfill`{=latex} 03/21 - 12/22
 
-Conducted a case study to integrate industry robotics programming standards into university curriculum.
-
-`{\small`{=latex}
-`\begin{multicols}{2}`{=latex}
-
-- Presented findings to 100+ attendees at SACAD.
-- Demonstrated benefits of project-based learning.
-
-`\end{multicols}`{=latex}
-`}`{=latex}
+Organized a case study to demonstrate the benefits of project-based learning in university robotics curriculum. Presented findings to 100+ attendees at SACAD.
 
 #### **Robotics Consultant & Programmer** for *NeySEA LLC* `\hfill`{=latex} 06/21 - 05/22
 
-Provided consultation and programming services to help bring robotics into an untapped market.
+Programmed a FANUC R-2000iB robot arm to wash mud off vehicles before an automatic car wash, eliminating the need for manual labor. The prototype paid for itself within 8 months of operation.
 
 #### **Frontend Web Developer** for *Webcom Resources LLC* `\hfill`{=latex} 01/19 - 04/19
 
-Designed websites using WordPress (Elementor) for local businesses and governing agencies.
+Improved online visibility of 4 local businesses and governing agencies by designing websites with strong SEO and effective marketing funnels using Wordpress.
 
-`{\small`{=latex}
-`\begin{multicols}{2}`{=latex}
-
-- Improved online visibility & conversions of 4 clients.
-- Enhanced branding & SEO of client software.
-
-`\end{multicols}`{=latex}
 `}`{=latex}
 
 ### Education
@@ -154,3 +150,4 @@ Designed websites using WordPress (Elementor) for local businesses and governing
 
 
 `\end{documentfooter}`{=latex}
+
