@@ -94,8 +94,14 @@ Schematics (Cars, 4 Wheeler), Robotics (FANUC TP, Arduino)
 
 #### **Full-Stack Software Engineer** for *Connect Webworks* `\hfill`{=latex} 09/24 - Present
 
-Created Lacuna CMS to reduce web costs by 80% and improve page speed by 10x compared to WordPress.
-Created the LanCouch VPN service to offer gamers the ability to play LAN games with their friends online.
+Lead the development of multiple new products for the company.
+
+`\begin{multicols}{2}`{=latex}
+
+- Created Lacuna CMS to cut web costs by 80% and boost page speed by 10x compared to WordPress.
+- Created the LanCouch VPN service to offer gamers the ability to play LAN games with their friends online.
+
+`\end{multicols}`{=latex}
 
 #### **Programmer I** for *AAON* `\hfill`{=latex} 05/24 - 9/24
 
@@ -105,6 +111,8 @@ Responsible for software integration, logistics solutions, and product testing f
 
 - Trained AI models to identify & flag product defects.
 - Generated work instructions and issue reports.
+- Negotiated tech to purchase from subcontractors.
+- Trained employees on new technologies.
 
 `\end{multicols}`{=latex}
 
@@ -150,4 +158,3 @@ Improved online visibility of 4 local businesses and governing agencies by desig
 
 
 `\end{documentfooter}`{=latex}
-
