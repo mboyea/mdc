@@ -106,7 +106,7 @@ Table: Berry pie filling ingredients.
 |Amount|Ingredient|
 | ---:| --- |
 |1 c|brown sugar|
-|1/2 t|cinnamon|
+|1/4 t|cinnamon|
 |1/4 t|salt|
 |1/2 c|flour|
 |1/3 c|old fashioned oats|
